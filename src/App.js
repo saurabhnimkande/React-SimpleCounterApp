@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+
 import './App.css';
+import {useState} from 'react';
 
 function App() {
+  const [count,setCount] =useState(0)
+
+  function changecount(val) {
+    setCount(count+val);
+
+  }
+  function multiply(val) {
+    setCount(count*val);
+  }
+
+  // if(count>10) {
+  //   return <div><h1>lol max num reached</h1></div>
+  // }
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Counter: {count}</h1>
+      <button onClick={() => changecount(1)}>Increment value</button>
+      <button onClick={() => changecount(-1)}>Decrement value</button>
+      <button onClick={() => multiply(2)}>Double</button>
+      {/* <h1>Counter is {count%2===0 ? "Even":"Odd"}</h1> */}
     </div>
   );
 }
